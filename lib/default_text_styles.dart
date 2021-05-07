@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 /// Standard TweetView text styles
 const defaultUserNameStyle = const TextStyle(
   fontSize: 16.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w700,
 );
 
 const defaultUserScreenNameStyle = const TextStyle(
   fontSize: 15.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   color: Colors.grey,
 );
 
 const defaultTextStyle = const TextStyle(
   fontSize: 15.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w300,
   height: 1.1,
   letterSpacing: 0.1,
@@ -24,7 +24,7 @@ const defaultTextStyle = const TextStyle(
 
 const defaultClickableTextStyle = const TextStyle(
   fontSize: 15.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w300,
   height: 1.1,
   letterSpacing: 0.1,
@@ -33,7 +33,7 @@ const defaultClickableTextStyle = const TextStyle(
 
 const defaultRetweetInformationStyle = const TextStyle(
   fontSize: 15.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   color: Colors.grey,
   fontWeight: FontWeight.w500,
 );
@@ -41,35 +41,35 @@ const defaultRetweetInformationStyle = const TextStyle(
 /// CompactTweetView text styles
 const defaultCompactUserNameStyle = const TextStyle(
   fontSize: 15.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w700,
   color: Colors.black,
 );
 
 const defaultCompactUserScreenNameStyle = const TextStyle(
   fontSize: 14.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w300,
   color: Colors.grey,
 );
 
 const defaultCompactTextStyle = const TextStyle(
   fontSize: 15.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w300,
   color: Colors.black,
 );
 
 const defaultCompactClickableTextStyle = const TextStyle(
   fontSize: 15.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w300,
   color: Colors.blue,
 );
 
 const defaultCompactRetweetInformationNameStyle = const TextStyle(
   fontSize: 14.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w400,
   color: Colors.grey,
 );
@@ -77,21 +77,21 @@ const defaultCompactRetweetInformationNameStyle = const TextStyle(
 /// QuoteTweetView text styles
 const defaultQuoteUserNameStyle = const TextStyle(
   fontSize: 14.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w700,
   color: Colors.black,
 );
 
 const defaultQuoteUserScreenNameStyle = const TextStyle(
   fontSize: 13.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w300,
   color: Colors.grey,
 );
 
 const defaultQuoteTextStyle = const TextStyle(
   fontSize: 15.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w300,
   height: 1.1,
   letterSpacing: 0.1,
@@ -100,7 +100,7 @@ const defaultQuoteTextStyle = const TextStyle(
 
 const defaultQuoteClickableTextStyle = const TextStyle(
   fontSize: 15.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w300,
   height: 1.1,
   letterSpacing: 0.1,
@@ -112,12 +112,12 @@ const defaultEmbeddedUserNameStyle = const TextStyle(
   fontSize: 14,
   color: Color(0xFF697882),
   fontWeight: FontWeight.w400,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
 );
 
 const defaultEmbeddedTextStyle = const TextStyle(
   fontSize: 18.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w400,
   height: 1.25,
   letterSpacing: 0,
@@ -126,7 +126,7 @@ const defaultEmbeddedTextStyle = const TextStyle(
 
 const defaultEmbeddedDarkTextStyle = const TextStyle(
   fontSize: 18.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w400,
   height: 1.25,
   letterSpacing: 0,
@@ -135,7 +135,7 @@ const defaultEmbeddedDarkTextStyle = const TextStyle(
 
 const defaultEmbeddedClickableTextStyle = const TextStyle(
   fontSize: 18.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w300,
   height: 1.25,
   wordSpacing: 4,
@@ -145,7 +145,7 @@ const defaultEmbeddedClickableTextStyle = const TextStyle(
 
 const defaultEmbeddedDarkQuoteUserNameStyle = const TextStyle(
   fontSize: 14.0,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
   fontWeight: FontWeight.w700,
   color: Colors.white,
 );
@@ -154,5 +154,5 @@ const defaultEmbeddedRetweetInformationStyle = const TextStyle(
   fontSize: 14,
   color: Color(0xFF697882),
   fontWeight: FontWeight.w500,
-  fontFamily: 'Roboto',
+  // fontFamily: 'Roboto',
 );
