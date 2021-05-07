@@ -185,11 +185,11 @@ class EmbeddedTweetView extends StatelessWidget {
                   size: 18,
                 ),
                 Container(
-                    margin: EdgeInsets.only(left: 6),
+                    margin: EdgeInsets.only(right: 6),
                     child: Text(_tweetVM.favoriteCount.toString(),
                         style: TextStyle(color: (darkMode) ? Colors.grey[400] : Colors.grey[600]))),
                 Container(
-                    margin: EdgeInsets.only(left: 16),
+                    margin: EdgeInsets.only(right: 16),
                     child: Text(_tweetVM.createdAt,
                         style: TextStyle(color: (darkMode) ? Colors.grey[400] : Colors.grey[600])))
               ],
