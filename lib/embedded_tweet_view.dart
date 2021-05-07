@@ -96,8 +96,7 @@ class EmbeddedTweetView extends StatelessWidget {
                                 Padding(
                                   child: RetweetInformation(
                                     _tweetVM,
-                                    retweetInformationStyle:
-                                        defaultEmbeddedRetweetInformationStyle,
+                                    retweetInformationStyle: defaultEmbeddedRetweetInformationStyle,
                                   ),
                                   padding: EdgeInsets.only(left: 28),
                                 ),
@@ -106,22 +105,18 @@ class EmbeddedTweetView extends StatelessWidget {
                                     ProfileImage(tweetVM: _tweetVM),
                                     Expanded(
                                       child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 8.0),
+                                        padding: const EdgeInsets.only(left: 8.0),
                                         child: Byline(
                                           _tweetVM,
                                           ViewMode.standard,
                                           userNameStyle: TextStyle(
-                                            color: (darkMode)
-                                                ? Colors.white
-                                                : Colors.black,
+                                            color: (darkMode) ? Colors.white : Colors.black,
                                             fontSize: 16.0,
-                                            fontFamily: 'Roboto',
+                                            // fontFamily: 'Roboto',
                                             fontWeight: FontWeight.w700,
                                           ),
                                           showDate: false,
-                                          userScreenNameStyle:
-                                              defaultEmbeddedUserNameStyle,
+                                          userScreenNameStyle: defaultEmbeddedUserNameStyle,
                                         ),
                                       ),
                                     ),
@@ -144,12 +139,9 @@ class EmbeddedTweetView extends StatelessWidget {
                     },
                     child: TweetText(
                       _tweetVM,
-                      textStyle: (darkMode)
-                          ? defaultEmbeddedDarkTextStyle
-                          : defaultEmbeddedTextStyle,
+                      textStyle: (darkMode) ? defaultEmbeddedDarkTextStyle : defaultEmbeddedTextStyle,
                       clickableTextStyle: defaultEmbeddedClickableTextStyle,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8.0, vertical: 15.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 15.0),
                     ),
                   ),
                   (_tweetVM.quotedTweet != null)
@@ -157,15 +149,11 @@ class EmbeddedTweetView extends StatelessWidget {
                           padding: EdgeInsets.only(top: 8.0, bottom: 10),
                           child: QuoteTweetViewEmbed.fromTweet(
                             _tweetVM.quotedTweet!,
-                            textStyle: TextStyle(
-                                color:
-                                    (darkMode) ? Colors.white : Colors.black),
+                            textStyle: TextStyle(color: (darkMode) ? Colors.white : Colors.black),
                             clickableTextStyle: defaultQuoteClickableTextStyle,
-                            userNameStyle: (darkMode)
-                                ? defaultEmbeddedDarkQuoteUserNameStyle
-                                : defaultQuoteUserNameStyle,
-                            userScreenNameStyle:
-                                defaultQuoteUserScreenNameStyle,
+                            userNameStyle:
+                                (darkMode) ? defaultEmbeddedDarkQuoteUserNameStyle : defaultQuoteUserNameStyle,
+                            userScreenNameStyle: defaultQuoteUserScreenNameStyle,
                             backgroundColor: null,
                             borderColor: null,
                             onTapImage: onTapImage,
@@ -199,17 +187,11 @@ class EmbeddedTweetView extends StatelessWidget {
                 Container(
                     margin: EdgeInsets.only(left: 6),
                     child: Text(_tweetVM.favoriteCount.toString(),
-                        style: TextStyle(
-                            color: (darkMode)
-                                ? Colors.grey[400]
-                                : Colors.grey[600]))),
+                        style: TextStyle(color: (darkMode) ? Colors.grey[400] : Colors.grey[600]))),
                 Container(
                     margin: EdgeInsets.only(left: 16),
                     child: Text(_tweetVM.createdAt,
-                        style: TextStyle(
-                            color: (darkMode)
-                                ? Colors.grey[400]
-                                : Colors.grey[600])))
+                        style: TextStyle(color: (darkMode) ? Colors.grey[400] : Colors.grey[600])))
               ],
             ),
           ),
@@ -234,12 +216,9 @@ class EmbeddedTweetView extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 5),
                       child: Text(
-                        "${_tweetVM.userName}'s other tweets",
+                        "${_tweetVM.userName} تغريدات أخرى",
                         style: TextStyle(
-                            color: (darkMode)
-                                ? Colors.blue[100]
-                                : Colors.blue[800],
-                            fontWeight: FontWeight.w400),
+                            color: (darkMode) ? Colors.blue[100] : Colors.blue[800], fontWeight: FontWeight.w400),
                         maxLines: 1,
                         overflow: TextOverflow.fade,
                         softWrap: false,
