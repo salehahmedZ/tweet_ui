@@ -105,7 +105,7 @@ class EmbeddedTweetView extends StatelessWidget {
                                     ProfileImage(tweetVM: _tweetVM),
                                     Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsets.only(left: 8.0),
+                                        padding: const EdgeInsets.only(right: 8.0),
                                         child: Byline(
                                           _tweetVM,
                                           ViewMode.standard,
