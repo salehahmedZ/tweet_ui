@@ -98,7 +98,7 @@ class EmbeddedTweetView extends StatelessWidget {
                                     _tweetVM,
                                     retweetInformationStyle: defaultEmbeddedRetweetInformationStyle,
                                   ),
-                                  padding: EdgeInsets.only(left: 28),
+                                  padding: EdgeInsets.only(right: 28),
                                 ),
                                 Row(
                                   children: <Widget>[
@@ -126,7 +126,7 @@ class EmbeddedTweetView extends StatelessWidget {
                             ),
                           ),
                           Align(
-                            alignment: Alignment.topRight,
+                            alignment: Alignment.topLeft,
                             child: TwitterLogo(),
                           )
                         ],
