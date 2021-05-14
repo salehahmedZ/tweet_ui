@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:timeago/timeago.dart';
 import 'package:tweet_ui/models/api/entieties/entity.dart';
 import 'package:tweet_ui/models/api/entieties/media_entity.dart';
 import 'package:tweet_ui/models/api/tweet.dart';
@@ -60,9 +61,7 @@ class TweetVM {
     required this.favorited,
   });
 
-  factory TweetVM.fromApiModel(
-          Tweet tweet, DateFormat? createdDateDisplayFormat) =>
-      new TweetVM(
+  factory TweetVM.fromApiModel(Tweet tweet, DateFormat? createdDateDisplayFormat) => new TweetVM(
         createdAt: _createdAt(tweet, createdDateDisplayFormat),
         hasSupportedVideo: _hasSupportedVideo(_originalTweetOrRetweet(tweet)),
         allEntities: _allEntities(_originalTweetOrRetweet(tweet)),
@@ -76,13 +75,10 @@ class TweetVM {
         allPhotos: _allPhotos(_originalTweetOrRetweet(tweet)),
         userName: _userName(tweet),
         userScreenName: _userScreenName(tweet),
-        quotedTweet: _quotedTweet(_originalTweetOrRetweet(tweet).quotedStatus,
-            createdDateDisplayFormat),
-        retweetedTweet:
-            _retweetedTweet(tweet.retweetedStatus, createdDateDisplayFormat),
+        quotedTweet: _quotedTweet(_originalTweetOrRetweet(tweet).quotedStatus, createdDateDisplayFormat),
+        retweetedTweet: _retweetedTweet(tweet.retweetedStatus, createdDateDisplayFormat),
         userVerified: _userVerified(tweet),
-        videoPlaceholderUrl:
-            _videoPlaceholderUrl(_originalTweetOrRetweet(tweet)),
+        videoPlaceholderUrl: _videoPlaceholderUrl(_originalTweetOrRetweet(tweet)),
         videoUrls: _videoUrls(_originalTweetOrRetweet(tweet)),
         videoAspectRatio: _videoAspectRatio(_originalTweetOrRetweet(tweet)),
         favoriteCount: _favoriteCount(tweet),
@@ -95,12 +91,23 @@ class TweetVM {
     return tweet.retweetedStatus != null ? tweet.retweetedStatus : tweet;
   }
 
+  static String _getTimeAgo(String langCode, DateTime time) {
+    try {
+      setLocaleMessages(langCode, langCode == 'ar' ? ArMessages() : EnMessages());
+      final String timeAgo = format(time, locale: langCode);
+      return timeAgo;
+    } catch (e) {
+      return '';
+    }
+
+    return '';
+  }
+
   static String _createdAt(Tweet tweet, DateFormat? displayFormat) {
-    DateFormat twitterFormat =
-        new DateFormat("EEE MMM dd HH:mm:ss '+0000' yyyy", 'en_US');
+    DateFormat twitterFormat = new DateFormat("EEE MMM dd HH:mm:ss '+0000' yyyy", 'en_US');
     final dateTime = twitterFormat.parseUTC(tweet.createdAt).toLocal();
-    return (displayFormat ?? new DateFormat("HH:mm • MM.dd.yyyy", 'en_US'))
-        .format(dateTime);
+    final format = (displayFormat ?? new DateFormat("HH:mm • MM.dd.yyyy", 'en_US')).format(dateTime);
+    return '$format - (${_getTimeAgo('ar', dateTime)})';
   }
 
   static bool _isPhotoType(MediaEntity mediaEntity) {
@@ -226,8 +233,7 @@ class TweetVM {
     return tweet.user.screenName;
   }
 
-  static TweetVM? _quotedTweet(
-      Tweet? tweet, DateFormat? createdDateDisplayFormat) {
+  static TweetVM? _quotedTweet(Tweet? tweet, DateFormat? createdDateDisplayFormat) {
     if (tweet != null) {
       return TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
     } else {
@@ -235,8 +241,7 @@ class TweetVM {
     }
   }
 
-  static TweetVM? _retweetedTweet(
-      Tweet? tweet, DateFormat? createdDateDisplayFormat) {
+  static TweetVM? _retweetedTweet(Tweet? tweet, DateFormat? createdDateDisplayFormat) {
     if (tweet != null) {
       return TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
     } else {
@@ -253,17 +258,12 @@ class TweetVM {
   }
 
   static Map<String, String> _videoUrls(Tweet tweet) {
-    final List<Variant>? listOfVideoVariants = _videoEntity(tweet)
-        ?.videoInfo
-        ?.variants
-        .where((variant) => variant.contentType == 'video/mp4')
-        .toList();
-    listOfVideoVariants?.sort(
-        (variantA, variantB) => variantA.bitrate.compareTo(variantB.bitrate));
+    final List<Variant>? listOfVideoVariants =
+        _videoEntity(tweet)?.videoInfo?.variants.where((variant) => variant.contentType == 'video/mp4').toList();
+    listOfVideoVariants?.sort((variantA, variantB) => variantA.bitrate.compareTo(variantB.bitrate));
     if (listOfVideoVariants != null && listOfVideoVariants.isNotEmpty) {
       return Map.fromIterable(listOfVideoVariants,
-          key: (dynamic variant) =>
-              (variant as Variant).bitrate.toString() + ' kbps',
+          key: (dynamic variant) => (variant as Variant).bitrate.toString() + ' kbps',
           value: (dynamic variant) => (variant as Variant).url);
     } else {
       return {};
@@ -288,9 +288,7 @@ class TweetVM {
   }
 
   static int _endDisplayText(Tweet tweet) {
-    return tweet.displayTextRange != null
-        ? tweet.displayTextRange![1]
-        : _runes(tweet).length;
+    return tweet.displayTextRange != null ? tweet.displayTextRange![1] : _runes(tweet).length;
   }
 
   static bool _favorited(Tweet tweet) {
