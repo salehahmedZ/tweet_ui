@@ -99,14 +99,12 @@ class TweetVM {
     } catch (e) {
       return '';
     }
-
-    return '';
   }
 
   static String _createdAt(Tweet tweet, DateFormat? displayFormat) {
     DateFormat twitterFormat = new DateFormat("EEE MMM dd HH:mm:ss '+0000' yyyy", 'en_US');
     final dateTime = twitterFormat.parseUTC(tweet.createdAt).toLocal();
-    final format = (displayFormat ?? new DateFormat("HH:mm • MM.dd.yyyy", 'en_US')).format(dateTime);
+    final format = (displayFormat ?? new DateFormat("h:mm a • MM.dd.yyyy", 'en_US')).format(dateTime);
     return '$format - (${_getTimeAgo('ar', dateTime)})';
   }
 

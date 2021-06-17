@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 /// Standard TweetView text styles
-const defaultUserNameStyle = const TextStyle(
+const defaultUserNameStyle = TextStyle(
   fontSize: 16.0,
   // fontFamily: 'Roboto',
   fontWeight: FontWeight.w700,
 );
 
-const defaultUserScreenNameStyle = const TextStyle(
+const defaultUserScreenNameStyle = TextStyle(
   fontSize: 15.0,
   // fontFamily: 'Roboto',
   color: Colors.grey,

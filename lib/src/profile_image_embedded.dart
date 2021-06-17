@@ -15,8 +15,7 @@ class ProfileImage extends StatelessWidget {
     return Container(
         margin: EdgeInsets.only(right: 5),
         child: CircleAvatar(
-          backgroundImage:
-              CachedNetworkImageProvider(tweetVM.getDisplayTweet().profileUrl),
+          backgroundImage: CachedNetworkImageProvider(tweetVM.getDisplayTweet().profileUrl),
         ));
   }
 }

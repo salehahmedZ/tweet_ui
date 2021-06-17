@@ -23,8 +23,7 @@ class TweetVideo extends StatefulWidget {
   _TweetVideoState createState() => _TweetVideoState();
 }
 
-class _TweetVideoState extends State<TweetVideo>
-    with AutomaticKeepAliveClientMixin {
+class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMixin {
   late BetterPlayerConfiguration betterPlayerConfiguration;
   late BetterPlayerController controller;
 
@@ -55,11 +54,7 @@ class _TweetVideoState extends State<TweetVideo>
       ),
       allowedScreenSleep: false,
       fullScreenByDefault: false,
-      deviceOrientationsOnFullScreen: [
-        DeviceOrientation.portraitUp,
-        DeviceOrientation.landscapeLeft,
-        DeviceOrientation.landscapeRight
-      ],
+      deviceOrientationsOnFullScreen: [DeviceOrientation.portraitUp, DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight],
       fullScreenAspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio!,
       autoPlay: widget.tweetVM.getDisplayTweet().hasGif || widget.autoPlay,
       looping: widget.tweetVM.getDisplayTweet().hasGif,
@@ -81,13 +76,10 @@ class _TweetVideoState extends State<TweetVideo>
             : Container(),
       ),
     );
-    var videoUrl = widget.videoHighQuality!
-        ? widget.tweetVM.getDisplayTweet().videoUrls.values.last
-        : widget.tweetVM.getDisplayTweet().videoUrls.values.first;
+    var videoUrl = widget.videoHighQuality! ? widget.tweetVM.getDisplayTweet().videoUrls.values.last : widget.tweetVM.getDisplayTweet().videoUrls.values.first;
     controller = BetterPlayerController(
       betterPlayerConfiguration,
-      betterPlayerDataSource: BetterPlayerDataSource.network(videoUrl,
-          qualities: widget.tweetVM.getDisplayTweet().videoUrls),
+      betterPlayerDataSource: BetterPlayerDataSource.network(videoUrl, qualities: widget.tweetVM.getDisplayTweet().videoUrls),
     );
     controller.setVolume(widget.initialVolume!);
   }

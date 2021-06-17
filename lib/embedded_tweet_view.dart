@@ -151,8 +151,7 @@ class EmbeddedTweetView extends StatelessWidget {
                             _tweetVM.quotedTweet!,
                             textStyle: TextStyle(color: (darkMode) ? Colors.white : Colors.black),
                             clickableTextStyle: defaultQuoteClickableTextStyle,
-                            userNameStyle:
-                                (darkMode) ? defaultEmbeddedDarkQuoteUserNameStyle : defaultQuoteUserNameStyle,
+                            userNameStyle: (darkMode) ? defaultEmbeddedDarkQuoteUserNameStyle : defaultQuoteUserNameStyle,
                             userScreenNameStyle: defaultQuoteUserScreenNameStyle,
                             backgroundColor: null,
                             borderColor: null,
@@ -184,14 +183,8 @@ class EmbeddedTweetView extends StatelessWidget {
                   color: (darkMode) ? Colors.grey[400] : Colors.grey[600],
                   size: 18,
                 ),
-                Container(
-                    margin: EdgeInsets.only(right: 6),
-                    child: Text(_tweetVM.favoriteCount.toString(),
-                        style: TextStyle(color: (darkMode) ? Colors.grey[400] : Colors.grey[600]))),
-                Container(
-                    margin: EdgeInsets.only(right: 16),
-                    child: Text(_tweetVM.createdAt,
-                        style: TextStyle(color: (darkMode) ? Colors.grey[400] : Colors.grey[600])))
+                Container(margin: EdgeInsets.only(right: 6), child: Text(_tweetVM.favoriteCount.toString(), style: TextStyle(color: (darkMode) ? Colors.grey[400] : Colors.grey[600]))),
+                Container(margin: EdgeInsets.only(right: 16), child: Text(_tweetVM.createdAt, style: TextStyle(color: (darkMode) ? Colors.grey[400] : Colors.grey[600])))
               ],
             ),
           ),
@@ -217,8 +210,7 @@ class EmbeddedTweetView extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 5),
                       child: Text(
                         "${_tweetVM.userName} تغريدات أخرى",
-                        style: TextStyle(
-                            color: (darkMode) ? Colors.blue[100] : Colors.blue[800], fontWeight: FontWeight.w400),
+                        style: TextStyle(color: (darkMode) ? Colors.blue[100] : Colors.blue[800], fontWeight: FontWeight.w400),
                         maxLines: 1,
                         overflow: TextOverflow.fade,
                         softWrap: false,

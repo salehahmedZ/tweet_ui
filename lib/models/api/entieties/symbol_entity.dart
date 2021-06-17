@@ -12,13 +12,10 @@ class SymbolEntity extends Entity {
     required indices,
   }) : super(indices: indices);
 
-  factory SymbolEntity.fromRawJson(String str) =>
-      SymbolEntity.fromJson(json.decode(str));
+  factory SymbolEntity.fromRawJson(String str) => SymbolEntity.fromJson(json.decode(str));
 
   factory SymbolEntity.fromJson(Map<String, dynamic> json) => new SymbolEntity(
         text: json["text"] == null ? null : json["text"],
-        indices: json["indices"] == null
-            ? null
-            : new List<int>.from(json["indices"].map((x) => x)),
+        indices: json["indices"] == null ? null : new List<int>.from(json["indices"].map((x) => x)),
       );
 }
