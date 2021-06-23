@@ -39,7 +39,7 @@ class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMi
         ),
       ),
       errorBuilder: (context, message) {
-        return Text('Error while loading video :-(');
+        return Center(child: Text('لم نستطع تشغيل هذا الفيديو!'));
       },
       aspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio!,
       controlsConfiguration: BetterPlayerControlsConfiguration(
