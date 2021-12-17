@@ -67,7 +67,7 @@ class EmbeddedTweetView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(5)),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
         border: Border.all(width: 0.6, color: Colors.grey[400]!),
         color: backgroundColor,
       ),
