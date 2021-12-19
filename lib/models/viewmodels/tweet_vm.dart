@@ -102,10 +102,12 @@ class TweetVM {
   }
 
   static String _createdAt(Tweet tweet, DateFormat? displayFormat) {
+    String lang = tweet.langCode ?? 'ar';
     DateFormat twitterFormat = new DateFormat("EEE MMM dd HH:mm:ss '+0000' yyyy", 'en_US');
     final dateTime = twitterFormat.parseUTC(tweet.createdAt).toLocal();
-    final format = (displayFormat ?? new DateFormat("h:mm a    dd / MM / yyyy", 'ar')).format(dateTime);
-    return '$format - (${_getTimeAgo('ar', dateTime)})';
+    final format = (displayFormat ?? new DateFormat("h:mm a    dd / MM / yyyy", lang)).format(dateTime);
+
+    return '$format - (${_getTimeAgo(lang, dateTime)})';
   }
 
   static bool _isPhotoType(MediaEntity mediaEntity) {
@@ -259,7 +261,8 @@ class TweetVM {
     final List<Variant>? listOfVideoVariants = _videoEntity(tweet)?.videoInfo?.variants.where((variant) => variant.contentType == 'video/mp4').toList();
     listOfVideoVariants?.sort((variantA, variantB) => variantA.bitrate.compareTo(variantB.bitrate));
     if (listOfVideoVariants != null && listOfVideoVariants.isNotEmpty) {
-      return Map.fromIterable(listOfVideoVariants, key: (dynamic variant) => (variant as Variant).bitrate.toString() + ' kbps', value: (dynamic variant) => (variant as Variant).url);
+      return Map.fromIterable(listOfVideoVariants,
+          key: (dynamic variant) => (variant as Variant).bitrate.toString() + ' kbps', value: (dynamic variant) => (variant as Variant).url);
     } else {
       return {};
     }

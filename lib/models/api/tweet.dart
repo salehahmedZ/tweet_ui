@@ -60,6 +60,8 @@ class Tweet {
   /// The number of favorites(hearts)
   int? favoriteCount;
 
+  String? langCode;
+
   /// Nullable. List of two unicode code point indices, identifying the inclusive start and exclusive end of the displayable content of the Tweet.
   List<int>? displayTextRange;
 
@@ -77,16 +79,17 @@ class Tweet {
     this.favorited,
     this.favoriteCount,
     this.displayTextRange,
+    this.langCode,
   });
 
-  factory Tweet.fromRawJson(String str) => Tweet.fromJson(json.decode(str));
+  factory Tweet.fromRawJson(String str, String langCode) => Tweet.fromJson(json.decode(str), langCode);
 
-  factory Tweet.fromJson(Map<String, dynamic> json) => new Tweet(
+  factory Tweet.fromJson(Map<String, dynamic> json, String langCode) => new Tweet(
         createdAt: json["created_at"] == null ? null : json["created_at"],
         id: json["id"] == null ? null : json["id"].toDouble(),
         idStr: json["id_str"] == null ? null : json["id_str"],
-        quotedStatus: json["quoted_status"] == null ? null : Tweet.fromJson(json["quoted_status"]),
-        retweetedStatus: json["retweeted_status"] == null ? null : Tweet.fromJson(json["retweeted_status"]),
+        quotedStatus: json["quoted_status"] == null ? null : Tweet.fromJson(json["quoted_status"], langCode),
+        retweetedStatus: json["retweeted_status"] == null ? null : Tweet.fromJson(json["retweeted_status"], langCode),
         text: json["text"] == null ? (json["full_text"] == null ? null : json["full_text"]) : json["text"],
         entities: json["entities"] == null ? const TweetEntities.empty() : TweetEntities.fromJson(json["entities"]),
         extendedEntities: json["extended_entities"] == null ? const TweetEntities.empty() : TweetEntities.fromJson(json["extended_entities"]),
@@ -95,5 +98,6 @@ class Tweet {
         favorited: json["favorited"] == null ? null : json["favorited"],
         favoriteCount: json['favorite_count'] == null ? null : json["favorite_count"],
         displayTextRange: json["display_text_range"] == null ? null : (json["display_text_range"]).cast<int>(),
+        langCode: langCode,
       );
 }

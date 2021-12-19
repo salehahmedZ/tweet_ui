@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:intl/intl.dart' as intl;
 import 'package:tweet_ui/default_text_styles.dart';
 import 'package:tweet_ui/models/api/tweet.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
@@ -35,7 +35,7 @@ class EmbeddedTweetView extends StatelessWidget {
   final OnTapImage? onTapImage;
 
   /// Date format when the tweet was created. When null it defaults to DateFormat("HH:mm • MM.dd.yyyy", 'en_US')
-  final DateFormat? createdDateDisplayFormat;
+  final intl.DateFormat? createdDateDisplayFormat;
 
   /// If set to true betterplayer/video_player will load the highest quality available.
   /// If set to false betterplayer/video_player will load the lowest quality available.
@@ -88,47 +88,46 @@ class EmbeddedTweetView extends StatelessWidget {
                       onTap: () {
                         openUrl(_tweetVM.getDisplayTweet().userLink);
                       },
-                      child: Stack(
+                      child: Row(
                         children: <Widget>[
-                          IntrinsicHeight(
-                            child: Column(
-                              children: <Widget>[
-                                Padding(
-                                  child: RetweetInformation(
-                                    _tweetVM,
-                                    retweetInformationStyle: defaultEmbeddedRetweetInformationStyle,
+                          Expanded(
+                            child: IntrinsicHeight(
+                              child: Column(
+                                children: <Widget>[
+                                  Padding(
+                                    child: RetweetInformation(
+                                      _tweetVM,
+                                      retweetInformationStyle: defaultEmbeddedRetweetInformationStyle,
+                                    ),
+                                    padding: EdgeInsets.only(right: 28),
                                   ),
-                                  padding: EdgeInsets.only(right: 28),
-                                ),
-                                Row(
-                                  children: <Widget>[
-                                    ProfileImage(tweetVM: _tweetVM),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(right: 8.0),
-                                        child: Byline(
-                                          _tweetVM,
-                                          ViewMode.standard,
-                                          userNameStyle: TextStyle(
-                                            color: (darkMode) ? Colors.white : Colors.black,
-                                            fontSize: 16.0,
-                                            // fontFamily: 'Roboto',
-                                            fontWeight: FontWeight.w700,
+                                  Row(
+                                    children: <Widget>[
+                                      ProfileImage(tweetVM: _tweetVM),
+                                      Expanded(
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(right: 8.0),
+                                          child: Byline(
+                                            _tweetVM,
+                                            ViewMode.standard,
+                                            userNameStyle: TextStyle(
+                                              color: (darkMode) ? Colors.white : Colors.black,
+                                              fontSize: 16.0,
+                                              // fontFamily: 'Roboto',
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                            showDate: false,
+                                            userScreenNameStyle: defaultEmbeddedUserNameStyle,
                                           ),
-                                          showDate: false,
-                                          userScreenNameStyle: defaultEmbeddedUserNameStyle,
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: TwitterLogo(),
-                          )
+                          TwitterLogo(),
                         ],
                       ),
                     ),
