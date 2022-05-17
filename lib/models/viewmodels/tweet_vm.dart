@@ -261,8 +261,7 @@ class TweetVM {
     final List<Variant>? listOfVideoVariants = _videoEntity(tweet)?.videoInfo?.variants.where((variant) => variant.contentType == 'video/mp4').toList();
     listOfVideoVariants?.sort((variantA, variantB) => variantA.bitrate.compareTo(variantB.bitrate));
     if (listOfVideoVariants != null && listOfVideoVariants.isNotEmpty) {
-      return Map.fromIterable(listOfVideoVariants,
-          key: (dynamic variant) => (variant as Variant).bitrate.toString() + ' kbps', value: (dynamic variant) => (variant as Variant).url);
+      return Map.fromIterable(listOfVideoVariants, key: (dynamic variant) => (variant as Variant).bitrate.toString() + ' kbps', value: (dynamic variant) => (variant as Variant).url);
     } else {
       return {};
     }
