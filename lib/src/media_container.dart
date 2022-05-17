@@ -202,7 +202,6 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
   Widget _buildSinglePhoto(BuildContext context, List<String> allPhotos, int photoIndex, String hashcode) {
     final List<PhotoViewGalleryPageOptions> galleryPageOptions = allPhotos
         .map((photoUrl) => PhotoViewGalleryPageOptions(
-              // TODO add option to choose image size (Twitter supports ":medium" ":large" at the end of photoUrl.
               imageProvider: CachedNetworkImageProvider(photoUrl),
               heroAttributes: PhotoViewHeroAttributes(
                 tag: photoUrl + hashcode,
